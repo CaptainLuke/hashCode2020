@@ -27,9 +27,10 @@ public class Input {
     for(int i = 0; i < Integer.parseInt(firstLine[1]); i++) {
       ArrayList<Library> libraries = new ArrayList<Library>();
       String[] libraryFirstLine = scan.nextLine().split(" ");
-      Library tempLibrary = new Library(Integer.parseInt(libraryFirstLine[0]), Integer.parseInt(libraryFirstLine[1]), Integer.parseInt(libraryFirstLine[2]));
+      Library tempLibrary = new Library(Integer.parseInt(libraryFirstLine[0]), Integer.parseInt(libraryFirstLine[1]), Integer.parseInt(libraryFirstLine[2]), bookScore);
       String[] librarySecondLine = scan.nextLine().split(" ");
       tempLibrary.addStringBooksIdS(librarySecondLine);
+      libraries.add(tempLibrary);
     }
     
     
