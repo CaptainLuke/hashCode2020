@@ -28,8 +28,15 @@ public class Input {
       ArrayList<Library> libraries = new ArrayList<Library>();
       String[] libraryFirstLine = scan.nextLine().split(" ");
       Library tempLibrary = new Library(Integer.parseInt(libraryFirstLine[0]), Integer.parseInt(libraryFirstLine[1]), Integer.parseInt(libraryFirstLine[2]));
+      String[] librarySecondLine = scan.nextLine().split(" ");
+      tempLibrary.addStringBooksIdS(librarySecondLine);
     }
-
+    
+    
+    
+    
+    
+    
   }
 
 }

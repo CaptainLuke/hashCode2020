@@ -1,6 +1,7 @@
 import java.util.ArrayList;
 public class Library {
-  ArrayList books;
+  String[] stringBooks;
+  int[] intBooksIDS;
   int numBooks;
   public static int nextId;
   public int id;
@@ -13,6 +14,14 @@ public class Library {
     nextId++;
     this.timeToSet = timeToSet;
     this.numBooksCanScan = numBooksCanScan;
+  }
+  
+  public void addStringBooksIdS(String[] stringBooks) {
+    this.stringBooks = stringBooks;
+    intBooksIDS = new int[stringBooks.length];
+    for(int i = 0; i < intBooksIDS.length; i++) {
+      intBooksIDS[i] = Integer.parseInt(stringBooks[i]);
+    }
   }
   
 
