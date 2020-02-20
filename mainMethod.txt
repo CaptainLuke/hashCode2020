@@ -13,7 +13,7 @@
         }
       }
 
-
+      libraries.get(msti).setOrder(msti);
       librariesUsed.add(libraries.get(msti));
       libraries.remove(msti);
       int tr = time - librariesUsed.get(librariesUsed.size() - 1).getTimeToSet();
@@ -26,7 +26,7 @@
       }
 
 
-      timeUsed += libraries.get(msti).getTimeToSet();
+      timeUsed += librariesUsed.get(librariesUsed.size() - 1).getTimeToSet();
     }
     // Main alg
     //
