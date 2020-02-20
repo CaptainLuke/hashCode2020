@@ -6,7 +6,7 @@ import java.util.Scanner;
 public class Input {
 
   public static void main(String[] args) throws FileNotFoundException {
-    File file = new File("FilePath");
+    File file = new File("Input.txt");
     Scanner scan = new Scanner(file);
     String[] firstLine = scan.nextLine().split(" ");
     //[0] is number of books
