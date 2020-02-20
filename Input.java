@@ -12,6 +12,9 @@ public class Input {
     //[0] is number of books
     //[1] is number of libraries
     //[2] is time in number of days
+    int time = Integer.parseInt(firstLine[3]); //Number of days as an int
+    int numBooks = Integer.parseInt(firstLine[0]); //Number of books
+    int numLibraries = Integer.parseInt(firstLine[2]); //Number of libraries
     String[] stringBookScores = scan.nextLine().split(" ");
     int[] bookScore = new int[stringBookScores.length];
     for(int i = 0; i < bookScore.length; i++) {
@@ -33,6 +36,11 @@ public class Input {
       libraries.add(tempLibrary);
     }
     
+    //bookScore is an array with the scores of all the books in it, get a score by bookScore[id of book]
+    //libraries is an arraylist of all the libraries
+    //with that you can do libraries.get(id of library).getBookScore(id of book)
+    //getTimeToSetSet returns an int of the time to set up
+    //getNumberOfBooksCanScan returns an int of the number of books it can scan in a day
     
     
     

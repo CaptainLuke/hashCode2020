@@ -2,7 +2,6 @@ public class Library {
   String[] stringBooks;
   int[] booksIDS;
   int numBooks;
-  private int id;
   private int timeToSet;
   private int numBooksCanScan;
   
@@ -24,7 +23,7 @@ public class Library {
     return booksIDS[code];
   }
   
-  public int getTimeToSetUP(){
+  public int getTimeToSet(){
     return timeToSet;
   }
   
