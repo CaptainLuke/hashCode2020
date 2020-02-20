@@ -51,46 +51,42 @@ public class Input {
     //
     // Main alg
     int timeUsed = 0;
-    ArrayList<Integer> librariesUsed = new ArrayList<Integer>();
+    ArrayList<Library> librariesUsed = new ArrayList<Library>();
     while (time - timeUsed > 0) {
 
       int mst = libraries.get(0).getTimeToSet();
       int msti = 0;
       for (int i = 0; i < libraries.size(); i++) {
-        if (libraries.get(i).getTimeToSet() <= mst && !librariesUsed.contains(msti)) {
+        if (libraries.get(i).getTimeToSet() <= mst) {
           mst = libraries.get(i).getTimeToSet();
           msti = i;
         }
       }
 
-      if (!librariesUsed.contains(msti)) {
-        librariesUsed.add(msti);
-        int tr = time - libraries.get(msti).getTimeToSet();
-        int bts = tr * libraries.get(msti).getNumberOfBooksCanScan();
-        for (int i = 0; i < bts; i++) {
-          if (i < libraries.get(msti).numBooks) {
-            libraries.get(msti).addBookToScan(i);
-          }
-
+      libraries.get(msti).setOrder(msti);
+      librariesUsed.add(libraries.get(msti));
+      libraries.remove(msti);
+      int tr = time - librariesUsed.get(librariesUsed.size() - 1).getTimeToSet();
+      int bts = tr * librariesUsed.get(librariesUsed.size() - 1).getNumberOfBooksCanScan();
+      for (int i = 0; i < bts; i++) {
+        if (i < librariesUsed.get(librariesUsed.size() - 1).numBooks) {
+          librariesUsed.get(librariesUsed.size() - 1).addBookToScan(i);
         }
-      } else {
-        break;
-      }
 
-      timeUsed += libraries.get(msti).getTimeToSet();
+      }
+      timeUsed += librariesUsed.get(librariesUsed.size() - 1).getTimeToSet();
     }
     // Main alg
     //
     
     writer.println(librariesUsed.size());
     for(int i = 0; i < librariesUsed.size(); i++) {
-      writer.println(librariesUsed.get(i) + " "  + libraries.get(librariesUsed.get(i)).booksToScan.size());
-      for(int j = 0; j < libraries.get(librariesUsed.get(i)).booksToScan.size(); j++) {
-        writer.print(libraries.get(librariesUsed.get(i)).booksToScan.get(j) + " ");
+      writer.println(librariesUsed.get(i).order + " "  + librariesUsed.get(i).booksToScan.size());
+      for(int j = 0; j < librariesUsed.get(i).booksToScan.size(); j++) {
+        writer.print(librariesUsed.get(i).booksToScan.get(j) + " ");
       }
       writer.println();
     }
     writer.flush();
-    
   }
 }
