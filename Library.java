@@ -1,9 +1,13 @@
+import java.util.ArrayList;
+
 public class Library {
   String[] stringBooks;
   int[] booksIDS;
   int numBooks;
   private int timeToSet;
   private int numBooksCanScan;
+  ArrayList<Integer> booksToScan = new ArrayList<Integer>();
+  int order;
   
   public Library(int numBooks, int timeToSet, int numBooksCanScan, int[] allBooks) {
     this.numBooks = numBooks;
@@ -31,5 +35,12 @@ public class Library {
     return numBooksCanScan;
   }
   
-
+  public void addBookToScan(int book) {
+    booksToScan.add(book);
+  }
+  
+  public void setOrder(int order) {
+    this.order = order;
+  }
+ 
 }

@@ -9,6 +9,7 @@ public class Input {
     File file = new File("Input.txt");
     Scanner scan = new Scanner(file);
     String[] firstLine = scan.nextLine().split(" ");
+    int numLibrariesUsed = 0;
     //[0] is number of books
     //[1] is number of libraries
     //[2] is time in number of days
@@ -27,8 +28,8 @@ public class Input {
     //number of books that can be shipped per day after set up
     //Line two  - Describes books in the library by id number
     
-    for(int i = 0; i < Integer.parseInt(firstLine[1]); i++) {
-      ArrayList<Library> libraries = new ArrayList<Library>();
+    ArrayList<Library> libraries = new ArrayList<Library>();
+    for(int i = 0; i < Integer.parseInt(firstLine[1]); i++) {  
       String[] libraryFirstLine = scan.nextLine().split(" ");
       Library tempLibrary = new Library(Integer.parseInt(libraryFirstLine[0]), Integer.parseInt(libraryFirstLine[1]), Integer.parseInt(libraryFirstLine[2]), bookScore);
       String[] librarySecondLine = scan.nextLine().split(" ");
