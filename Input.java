@@ -41,11 +41,12 @@ public class Input {
     //with that you can do libraries.get(id of library).getBookScore(id of book)
     //getTimeToSetSet returns an int of the time to set up
     //getNumberOfBooksCanScan returns an int of the number of books it can scan in a day
+    //addBookToScan adds a book with the given id to that paticular library to scan
+    
     
     
     
     
     
   }
-
 }
