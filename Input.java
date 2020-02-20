@@ -2,20 +2,23 @@ import java.io.File;
 import java.io.FileNotFoundException;
 import java.util.ArrayList;
 import java.util.Scanner;
+import java.io.PrintWriter;
 
 public class Input {
 
   public static void main(String[] args) throws FileNotFoundException {
-    File file = new File("Input.txt");
-    Scanner scan = new Scanner(file);
+    File fileIn = new File("Input.txt");
+    File fileOut = new File("Output.txt");
+    Scanner scan = new Scanner(fileIn);
     String[] firstLine = scan.nextLine().split(" ");
+    PrintWriter writer = new PrintWriter(fileOut);
     int numLibrariesUsed = 0;
     //[0] is number of books
     //[1] is number of libraries
     //[2] is time in number of days
-    int time = Integer.parseInt(firstLine[3]); //Number of days as an int
+    int time = Integer.parseInt(firstLine[2]); //Number of days as an int
     int numBooks = Integer.parseInt(firstLine[0]); //Number of books
-    int numLibraries = Integer.parseInt(firstLine[2]); //Number of libraries
+    int numLibraries = Integer.parseInt(firstLine[1]); //Number of libraries
     String[] stringBookScores = scan.nextLine().split(" ");
     int[] bookScore = new int[stringBookScores.length];
     for(int i = 0; i < bookScore.length; i++) {
@@ -51,7 +54,8 @@ public class Input {
     
     
     
-    
+    writer.print(libraries.size());
+    writer.flush();
     
   }
 }
